@@ -1,0 +1,10 @@
+# Dependency directory
+/node_modules
+
+## building output directory
+/dist
+
+# Env configuration
+.env
+
+/package-lock.json
