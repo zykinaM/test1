@@ -1,31 +1,31 @@
 import React, { FC, memo } from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import history from './core/history';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import MainPage from './pages/MainPage';
 import LoginPage from './pages/LoginPage';
 import NewsPage from './pages/NewsPage';
-import ProfilePage from './pages/ProfilePage';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import PrivateComponent from './pages/PrivateComponent';
+import { Container } from 'react-bootstrap';
 
 const App: FC = () => (
-  <div className="App">
-    <Provider store={store}>
-      <Router history={history}>
+  <Provider store={store}>
+    <Router>
+      <Container>
         <Header />
         <Switch>
-          <Route path="/" component={MainPage} />
-          <Route path="/login" component={LoginPage} />
-          <Route path="/news" component={NewsPage} />
-          <Route path="/profile" component={ProfilePage} />
+          <Route exact path="/" component={MainPage} />
+          <Route exact path="/news" component={NewsPage} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route path="/" component={PrivateComponent} />
         </Switch>
         <Footer />
-      </Router>
-    </Provider>
-  </div>
+      </Container>
+    </Router>
+  </Provider>
 );
 
 export default memo(App);

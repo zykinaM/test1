@@ -1,21 +1,21 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, FormEventHandler, ChangeEvent, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+import { Redirect } from 'react-router-dom';
+import LoginForm from '../../components/LoginForm';
 
-const LoginPage: FC = () => (
-  <form className="form-signin">
-    <img className="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72" />
-    <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label htmlFor="inputEmail" className="sr-only">Email address</label>
-    <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required />
-    <label htmlFor="inputPassword" className="sr-only">Password</label>
-    <input type="password" id="inputPassword" className="form-control" placeholder="Password" required />
-    <div className="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me</input>
-      </label>
-    </div>
-    <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <p className="mt-5 mb-3 text-muted">&copy; 2017-2021</p>
-  </form>
-);
+const LoginPage: FC = () => {
+  const { isAuthenticated, checkAuthError } = useSelector(
+    (state: RootState) => state.auth
+  );
+
+  if (isAuthenticated && !checkAuthError) {
+    return <Redirect to="/" />;
+  }
+
+  return (
+    <LoginForm />
+  );
+};
 
 export default memo(LoginPage);

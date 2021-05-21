@@ -7,7 +7,8 @@ module.exports = {
 
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "index_bundle.js"
+    filename: "index_bundle.js",
+    publicPath: '/'
   },
 
 	resolve: {
@@ -24,6 +25,25 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
       },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              modules: true,
+              localIdentName: "[local]___[hash:base64:5]"
+            }
+          },
+          {
+            loader: "less-loader"
+          }
+        ]
+      }
     ]
   },
   plugins: [
@@ -35,6 +55,7 @@ module.exports = {
     publicPath: "/",
     contentBase: "./public",
     hot: true,
-    port: 3000
+    port: 3000,
+    historyApiFallback: true,
   },
 };
