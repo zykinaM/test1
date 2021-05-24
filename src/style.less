@@ -3,6 +3,7 @@
 footer {
 	padding-top: 16px;
 	border-top: 1px solid @grey;
+	text-align: -webkit-center;
 }
 
 .jumbotron {
@@ -25,4 +26,32 @@ footer {
 .loginContainer {
 	height: calc(100vh - 200px);
 	padding-top: 100px;
+	max-width: 300px;
+	margin: 0 auto;
 }
+
+// Area site
+.area {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loginHeader{
+	text-align: center;
+}
+
+@media (max-width: 768px) {
+	.bannerText {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.jumbotron {
+		min-height: 200px;
+	}
+	.loginContainer {
+		padding: 16px 10px;
+	}
+}
+
+

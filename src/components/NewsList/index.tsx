@@ -23,7 +23,7 @@ const news = [
 const NewsList: FC = () => (
   <Row>
     {news.map((item, index) => (
-      <Col key={index}>
+      <Col key={index} xs={12} md={4} className="my-3">
         <NewsCard
           title={item.title}
           description={item.description}

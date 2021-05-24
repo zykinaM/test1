@@ -26,31 +26,28 @@ const LoginForm: FC = () => {
   }
 
   return (
-    <Row className="justify-content-center loginContainer">
-      <Col md="4">
-        <Row className="justify-content-center">
-          <Col xs="auto"><h2>Login</h2></Col>
-        </Row>
-        <Form onSubmit={handleFormSubmit}>
-          <Form.Group className="mt-3">
-            <Form.Label>User Name</Form.Label>
-            <Form.Control name="username" type="username" placeholder="Enter username" onChange={onFormChange} />
-          </Form.Group>
-          <Form.Group className="mt-3">
-            <Form.Label>Password</Form.Label>
-            <Form.Control name="password" type="password" placeholder="Password" onChange={onFormChange} />
-          </Form.Group>
-          <Button variant="primary" type="submit" className="mt-3 col-12">
-            Submit
+    <div className="loginContainer">
+      <h2 className="loginHeader">Login</h2>
+      <Form onSubmit={handleFormSubmit}>
+        <Form.Group className="mt-3">
+          <Form.Label>User Name</Form.Label>
+          <Form.Control name="username" type="username" placeholder="Enter username" onChange={onFormChange} />
+        </Form.Group>
+        <Form.Group className="mt-3">
+          <Form.Label>Password</Form.Label>
+          <Form.Control name="password" type="password" placeholder="Password" onChange={onFormChange} />
+        </Form.Group>
+        <Button variant="primary" type="submit" className="mt-3 col-12">
+          Submit
             </Button>
-        </Form>
-        {!isAuthenticated && error &&
-          <Alert variant='danger' className="mt-3">
-            Имя пользователя или пароль введены неверно
+      </Form>
+      {
+        !isAuthenticated && error &&
+        <Alert variant='danger' className="mt-3">
+          Имя пользователя или пароль введены неверно
           </Alert>
-        }
-      </Col>
-    </Row>
+      }
+    </div >
   );
 };
 

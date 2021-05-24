@@ -6,7 +6,7 @@ const MainPageBanner: FC = () => (
   <Jumbotron>
     <Container>
       <h1>Hello!</h1>
-      <p>
+      <p className="bannerText">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare elit in erat tempor varius.
         In finibus lacus sit amet nulla eleifend, at sagittis augue vestibulum. Proin lobortis leo et
         hendrerit aliquet. Integer elit velit, porta id orci eget, bibendum scelerisque tortor.
