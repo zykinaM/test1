@@ -1,9 +1,8 @@
 import React, { FC, memo } from 'react';
+import MainPageBanner from '../../components/MainPageBanner';
 
 const MainPage: FC = () => (
-  <div className="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 className="display-4">Main page</h1>
-  </div>
+  <MainPageBanner />
 );
 
 export default memo(MainPage);

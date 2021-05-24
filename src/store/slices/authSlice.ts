@@ -24,6 +24,14 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
+    logoutRequest: (state) => {
+      state.loginLoading = false;
+      state.error = null;
+      state.checkAuthLoading = false;
+      state.checkAuthError = null;
+      state.isAuthenticated = false;
+      state.user = '';
+    },
     loginRequest: (state) => {
       state.loginLoading = true;
     },
@@ -53,6 +61,7 @@ export const authSlice = createSlice({
 });
 
 export const {
+  logoutRequest,
   loginRequest,
   loginSuccess,
   loginFailure,
@@ -75,6 +84,13 @@ export const login = (
       dispatch(loginFailure('error'));
     }
   };
+
+export const logout = (): AppThunk => async (
+  dispatch
+) => {
+  dispatch(logoutRequest());
+  localStorage.clear();
+};
 
 export const checkAuth = (): AppThunk => async (dispatch) => {
   dispatch(checkAuthRequest());

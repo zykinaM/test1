@@ -8,16 +8,22 @@ import { RootState } from '../store/store';
 const PrivateComponent: FC = () => {
   const dispatch = useDispatch();
 
+  const { user } = useSelector(
+    (state: RootState) => state.auth
+  );
+
   useEffect(() => {
     dispatch(checkAuth());
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   const { isAuthenticated, checkAuthError } = useSelector(
     (state: RootState) => state.auth
   );
+
   if (!isAuthenticated && !checkAuthError) {
     return null;
   }
+
   if (!isAuthenticated && checkAuthError) {
     return <Redirect to="/login" />;
   }
