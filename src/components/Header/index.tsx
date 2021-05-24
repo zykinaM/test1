@@ -1,9 +1,10 @@
 import React, { FC, memo } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './style.less';
 
 const Header: FC = () => (
-  <Navbar bg="light">
+  <Navbar className="header" bg="light">
     <Navbar.Brand href="/">Navbar</Navbar.Brand>
     <Nav activeKey="home">
       <Nav.Item>

@@ -14,16 +14,16 @@ import { Container } from 'react-bootstrap';
 const App: FC = () => (
   <Provider store={store}>
     <Router>
+      <Header />
       <Container>
-        <Header />
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/news" component={NewsPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route path="/" component={PrivateComponent} />
         </Switch>
-        <Footer />
       </Container>
+      <Footer />
     </Router>
   </Provider>
 );

@@ -1,6 +1,7 @@
 import React, { FC, memo } from 'react';
 import { RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
+import { Button } from 'react-bootstrap';
 
 const ProfilePage: FC = () => {
   const { user } = useSelector(
@@ -10,6 +11,7 @@ const ProfilePage: FC = () => {
     <>
       <div>ProfilePage</div>
       <div>UserName: {user}</div>
+      <Button onClick={() => localStorage.clear()}>Logout</Button>
     </>
   );
 };

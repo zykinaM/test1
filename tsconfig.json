@@ -9,8 +9,11 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
   },
+  "includes": [
+    "./externals.d.ts",
+  ],
   "types": [
     "react",
     "@types"
-  ]
+  ],
 }
